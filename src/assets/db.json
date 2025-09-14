@@ -1,0 +1,34 @@
+{
+  "game": {
+    "id": 1,
+    "difficulty": "easy",
+    "word": "Attrecto",
+    "guessedLetters": ["r", "c", "o"],
+    "wrongGuesses": 0,
+    "maxWrongGuesses": 10,
+    "status": "playing"
+  },
+  "words": [
+    "szivárvány",
+    "barátság",
+    "csillagászat",
+    "madártej",
+    "gyümölcs",
+    "tavaszod",
+    "színház",
+    "virágoskert",
+    "almáspite",
+    "kockacukor",
+    "szabadság",
+    "kandalló",
+    "fagylaltos",
+    "körtefa",
+    "számítógép",
+    "asztalfiók",
+    "hóemberke",
+    "tündéres",
+    "képregény",
+    "családtag",
+    "Attrecto"
+  ]
+}
