@@ -12,7 +12,7 @@ export const routes: Routes = [
       import('@features/start/start.component').then((m) => m.StartComponent),
   },
   {
-    path: 'game',
+    path: 'game/:id',
     loadComponent: () =>
       import('@features/game/game.component').then((m) => m.GameComponent),
   },

@@ -1,34 +1,205 @@
 {
-  "game": {
-    "id": 1,
-    "difficulty": "easy",
-    "word": "Attrecto",
-    "guessedLetters": ["r", "c", "o"],
-    "wrongGuesses": 0,
-    "maxWrongGuesses": 10,
-    "status": "playing"
-  },
+  "games": [
+    {
+      "id": "1",
+      "difficulty": "easy",
+      "word": {
+        "id": 45,
+        "value": "Attrecto"
+      },
+      "guessedLetters": [
+        "r",
+        "c",
+        "o",
+        "t",
+        "a",
+        "e"
+      ],
+      "wrongGuesses": 2,
+      "maxWrongGuesses": 10,
+      "status": "won"
+    }
+  ],
   "words": [
-    "szivárvány",
-    "barátság",
-    "csillagászat",
-    "madártej",
-    "gyümölcs",
-    "tavaszod",
-    "színház",
-    "virágoskert",
-    "almáspite",
-    "kockacukor",
-    "szabadság",
-    "kandalló",
-    "fagylaltos",
-    "körtefa",
-    "számítógép",
-    "asztalfiók",
-    "hóemberke",
-    "tündéres",
-    "képregény",
-    "családtag",
-    "Attrecto"
+    {
+      "id": 1,
+      "value": "reward"
+    },
+    {
+      "id": 2,
+      "value": "shiver"
+    },
+    {
+      "id": 3,
+      "value": "regret"
+    },
+    {
+      "id": 4,
+      "value": "carbon"
+    },
+    {
+      "id": 5,
+      "value": "island"
+    },
+    {
+      "id": 6,
+      "value": "impound"
+    },
+    {
+      "id": 7,
+      "value": "extreme"
+    },
+    {
+      "id": 8,
+      "value": "inspire"
+    },
+    {
+      "id": 9,
+      "value": "finance"
+    },
+    {
+      "id": 10,
+      "value": "control"
+    },
+    {
+      "id": 11,
+      "value": "collapse"
+    },
+    {
+      "id": 12,
+      "value": "medicine"
+    },
+    {
+      "id": 13,
+      "value": "frighten"
+    },
+    {
+      "id": 14,
+      "value": "observer"
+    },
+    {
+      "id": 15,
+      "value": "classify"
+    },
+    {
+      "id": 16,
+      "value": "monstrous"
+    },
+    {
+      "id": 17,
+      "value": "orchestra"
+    },
+    {
+      "id": 18,
+      "value": "executive"
+    },
+    {
+      "id": 19,
+      "value": "fireplace"
+    },
+    {
+      "id": 20,
+      "value": "essential"
+    },
+    {
+      "id": 21,
+      "value": "prevalence"
+    },
+    {
+      "id": 22,
+      "value": "background"
+    },
+    {
+      "id": 23,
+      "value": "particular"
+    },
+    {
+      "id": 24,
+      "value": "attraction"
+    },
+    {
+      "id": 25,
+      "value": "pedestrian"
+    },
+    {
+      "id": 26,
+      "value": "unfortunate"
+    },
+    {
+      "id": 27,
+      "value": "charismatic"
+    },
+    {
+      "id": 28,
+      "value": "institution"
+    },
+    {
+      "id": 29,
+      "value": "destruction"
+    },
+    {
+      "id": 30,
+      "value": "presentation"
+    },
+    {
+      "id": 31,
+      "value": "manufacturer"
+    },
+    {
+      "id": 32,
+      "value": "interference"
+    },
+    {
+      "id": 33,
+      "value": "announcement"
+    },
+    {
+      "id": 34,
+      "value": "presidential"
+    },
+    {
+      "id": 35,
+      "value": "inappropriate"
+    },
+    {
+      "id": 36,
+      "value": "embarrassment"
+    },
+    {
+      "id": 37,
+      "value": "consideration"
+    },
+    {
+      "id": 38,
+      "value": "comprehensive"
+    },
+    {
+      "id": 39,
+      "value": "communication"
+    },
+    {
+      "id": 40,
+      "value": "representative"
+    },
+    {
+      "id": 41,
+      "value": "responsibility"
+    },
+    {
+      "id": 42,
+      "value": "constitutional"
+    },
+    {
+      "id": 43,
+      "value": "discrimination"
+    },
+    {
+      "id": 44,
+      "value": "recommendation"
+    },
+    {
+      "id": 45,
+      "value": "Attrecto"
+    }
   ]
 }
