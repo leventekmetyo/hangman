@@ -1,7 +1,30 @@
 <div class="start">
-  <h1>Hangman</h1>
-  <nav class="menu">
-    <a [routerLink]="['/game']">Új játék indítása</a>
-    <a [routerLink]="['/admin']">Admin</a>
-  </nav>
+  <h1>Hangman Game</h1>
+  <span>Choose a difficulty level</span>
+  <div class="menu" aria-label="difficulties">
+    <button
+      type="button"
+      (click)="difficulty = Difficulty.Easy"
+      [class.selected]="difficulty === Difficulty.Easy"
+    >
+      Easy (6-8)
+    </button>
+    <button
+      type="button"
+      (click)="difficulty = Difficulty.Medium"
+      [class.selected]="difficulty === Difficulty.Medium"
+    >
+      Medium (9-11)
+    </button>
+    <button
+      type="button"
+      (click)="difficulty = Difficulty.Hard"
+      [class.selected]="difficulty === Difficulty.Hard"
+    >
+      Hard (12-14)
+    </button>
+  </div>
+  <button type="button" class="play" (click)="createNewGame()">
+    Let's Play
+  </button>
 </div>
