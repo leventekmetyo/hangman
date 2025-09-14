@@ -218,6 +218,14 @@
     {
       "id": "45",
       "value": "attrecto"
+    },
+    {
+      "id": "46",
+      "value": "mandatory"
+    },
+    {
+      "id": "47",
+      "value": "mandatory"
     }
   ]
 }
