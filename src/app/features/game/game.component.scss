@@ -1,0 +1,149 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  margin: 128px;
+  padding: 32px;
+  gap: 32px;
+  background-color: white;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0;
+  color: #6e6f71;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 0;
+  color: #6e6f71;
+
+  &.won {
+    color: #27662d;
+  }
+
+  &.lost {
+    color: #a72a28;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1024px;
+}
+
+.answer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 600px;
+  margin-bottom: 24px;
+}
+
+.letter {
+  width: 64px;
+  height: 64px;
+  font-size: 48px;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 3px solid #6e6f71;
+  background-color: white;
+}
+
+svg {
+  color: #6e6f71;
+  width: 300px;
+
+  path,
+  circle {
+    stroke: #707070;
+    stroke-width: 0.1;
+    stroke-linecap: round;
+    fill: none;
+  }
+}
+
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 960px;
+}
+
+button.letter {
+  border: 2px solid #6e6f71;
+  color: #6e6f71;
+  font-size: 32px;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    &:not(.disabled) {
+      background-color: #00abeb;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+button:not(.letter) {
+  text-decoration: none;
+  font-size: 24px;
+  border: none;
+  padding: 16px;
+  width: 300px;
+  border-radius: 4px;
+  background-color: #00abeb;
+  color: white;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: #00abeb;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.selected {
+    background-color: #00abeb;
+    color: white;
+  }
+
+  &.cancel {
+    background-color: white;
+    color: #00abeb;
+    border: 2px solid #00abeb;
+
+    &:hover {
+      background-color: #00abeb;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  &.restart {
+    &:hover {
+      background-color: #008cba;
+      cursor: pointer;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+}

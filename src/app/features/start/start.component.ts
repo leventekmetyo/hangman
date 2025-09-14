@@ -11,7 +11,7 @@ import { GameService, WordService } from '@app/shared/services';
 
 @Component({
   selector: 'hm-start',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './start.component.html',
   styleUrl: './start.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,17 +45,14 @@ export class StartComponent implements OnInit {
     switch (this.difficulty) {
       case Difficulty.Easy:
         words = words.filter((word) => word.value.length <= 8);
-        maxWrongGuesses = 6;
         break;
       case Difficulty.Medium:
         words = words.filter(
           (word) => word.value.length > 8 && word.value.length <= 11,
         );
-        maxWrongGuesses = 8;
         break;
       case Difficulty.Hard:
         words = words.filter((word) => word.value.length > 11);
-        maxWrongGuesses = 10;
         break;
     }
 
@@ -70,7 +67,7 @@ export class StartComponent implements OnInit {
         word,
         guessedLetters: [],
         wrongGuesses: 0,
-        maxWrongGuesses,
+        maxWrongGuesses: 6,
         status: Status.Playing,
       });
 

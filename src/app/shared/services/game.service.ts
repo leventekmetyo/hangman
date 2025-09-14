@@ -46,4 +46,22 @@ export class GameService {
       },
     });
   }
+
+  updateGame(game: Game): void {
+    this.httpClient
+      .put<Game>(`${environment.url}/games/${game.id}`, game)
+      .subscribe({
+        next: (updatedGame) => {
+          const currentGames = this.getGame();
+          const index = currentGames.findIndex((g) => g.id === updatedGame.id);
+          if (index !== -1) {
+            currentGames[index] = updatedGame;
+            this.setGame([...currentGames]);
+          }
+        },
+        error: (error) => {
+          console.error('Hiba a játék frissítésekor:', error);
+        },
+      });
+  }
 }

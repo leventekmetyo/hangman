@@ -1,1 +1,72 @@
-<p>game works!</p>
+<div class="game">
+  <h1>Hangman Game</h1>
+  @let game = (game$ | async)!;
+  @if (game !== null && game.word) {
+    @if (game.status === 'won') {
+      <h2 class="won">You've won!</h2>
+    } @else if (game.status === 'lost') {
+      <h2 class="lost">You've lost!</h2>
+    }
+    <div class="content">
+      <div class="answer">
+        <div class="letters">
+          @for (letter of game.word.value; track letter) {
+            <div class="letter">
+              {{ letter | isGuessed: game.word.value : game.guessedLetters }}
+            </div>
+          }
+        </div>
+        <div class="alphabet">
+          @for (letter of alphabet; track letter) {
+            <button
+              type="button"
+              class="letter"
+              [class.disabled]="!(letter | isAvailable: game.guessedLetters)"
+              (click)="guessLetter(letter)"
+            >
+              {{ letter }}
+            </button>
+          }
+        </div>
+        <span>
+          Remaining possibility of failure:
+          <b>
+            {{ game.maxWrongGuesses - game.wrongGuesses }}
+          </b>
+        </span>
+      </div>
+      <div class="tree">
+        <svg viewBox="0 0 10 12">
+          <path d="M1,11 h8" />
+          <path d="M9,11 v-10" />
+          <path d="M9,1 h-4" />
+          <path d="M5,1 v2" />
+          @if (game.wrongGuesses >= 1) {
+            <circle cx="5" cy="4" r="1" />
+          }
+          @if (game.wrongGuesses >= 2) {
+            <path d="M5,5 v3" />
+          }
+          @if (game.wrongGuesses >= 3) {
+            <path d="M5,5 l-2,2" />
+          }
+          @if (game.wrongGuesses >= 4) {
+            <path d="M5,5 l2,2" />
+          }
+          @if (game.wrongGuesses >= 5) {
+            <path d="M5,8 l-2,2" />
+          }
+          @if (game.wrongGuesses >= 6) {
+            <path d="M5,8 l2,2" />
+          }
+        </svg>
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="button" class="cancel">End Game</button>
+      <button type="button" class="restart" (click)="createNewGame()">Start New Game</button>
+    </div>
+  } @else {
+    <h2>Loading...</h2>
+  }
+</div>

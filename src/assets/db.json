@@ -7,16 +7,9 @@
         "id": 45,
         "value": "Attrecto"
       },
-      "guessedLetters": [
-        "r",
-        "c",
-        "o",
-        "t",
-        "a",
-        "e"
-      ],
-      "wrongGuesses": 2,
-      "maxWrongGuesses": 10,
+      "guessedLetters": ["r", "c", "o", "t", "a", "e"],
+      "wrongGuesses": 0,
+      "maxWrongGuesses": 6,
       "status": "won"
     }
   ],
