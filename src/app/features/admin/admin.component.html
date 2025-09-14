@@ -1,1 +1,21 @@
-<p>admin works!</p>
+<div class="admin">
+  <h1>Admin</h1>
+  <div class="content">
+    <form [formGroup]="wordFormGroup" (ngSubmit)="addNewWord()">
+      <label for="wordInput">Type the word you want to add to the list:</label>
+      <input
+        id="wordInput"
+        type="text"
+        formControlName="wordValue"
+        placeholder="New word"
+      />
+      <button type="submit" class="save">Save</button>
+      <button type="button" class="back" routerLink="/start">Back</button>
+    </form>
+    <div class="words">
+      @for (word of words; track word) {
+        <span>{{ word.value }}</span>
+      }
+    </div>
+  </div>
+</div>
