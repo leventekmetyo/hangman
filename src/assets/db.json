@@ -7,10 +7,35 @@
         "id": 45,
         "value": "Attrecto"
       },
-      "guessedLetters": ["r", "c", "o", "t", "a", "e"],
+      "guessedLetters": [
+        "r",
+        "c",
+        "o",
+        "t",
+        "a",
+        "e"
+      ],
       "wrongGuesses": 0,
       "maxWrongGuesses": 6,
       "status": "won"
+    },
+    {
+      "id": "2",
+      "difficulty": "easy",
+      "word": {
+        "id": 12,
+        "value": "medicine"
+      },
+      "guessedLetters": [
+        "e",
+        "d",
+        "m",
+        "i",
+        "f"
+      ],
+      "wrongGuesses": 1,
+      "maxWrongGuesses": 6,
+      "status": "playing"
     }
   ],
   "words": [
@@ -191,8 +216,8 @@
       "value": "recommendation"
     },
     {
-      "id": 45,
-      "value": "Attrecto"
+      "id": "45",
+      "value": "attrecto"
     }
   ]
 }

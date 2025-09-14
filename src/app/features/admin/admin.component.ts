@@ -8,12 +8,16 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Word } from '@app/shared/models';
 import { WordService } from '@app/shared/services';
+import { addNewWord } from '@app/shared/store/shared.actions';
+import { selectWords } from '@app/shared/store/shared.selectors';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @UntilDestroy()
 @Component({
@@ -24,7 +28,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminComponent implements OnInit {
-  private readonly wordService: WordService = inject(WordService);
+  private readonly store: Store = inject(Store);
 
   wordFormGroup = new FormGroup({
     wordValue: new FormControl('', {
@@ -40,10 +44,14 @@ export class AdminComponent implements OnInit {
     return this.wordFormGroup.get('wordValue') as FormControl;
   }
 
+  words$!: Observable<Word[]>;
+
   words: Word[] = [];
 
   ngOnInit(): void {
-    this.wordService.loadWords().pipe(untilDestroyed(this)).pipe(untilDestroyed(this)).subscribe((words) => {
+    this.words$ = this.store.select(selectWords);
+
+    this.words$.pipe(untilDestroyed(this)).subscribe((words) => {
       this.words = words;
     });
   }
@@ -57,10 +65,7 @@ export class AdminComponent implements OnInit {
           value,
         };
 
-        this.wordService.addNewWord(newWord).pipe(untilDestroyed(this)).subscribe((word) => {
-          this.words.push(word);
-          this.value.reset();
-        });
+        this.store.dispatch(addNewWord(newWord));
       }
     }
   }

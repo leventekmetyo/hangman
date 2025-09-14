@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Game } from '../models';
 
+@UntilDestroy()
 @Injectable({
   providedIn: 'root',
 })
@@ -19,7 +21,7 @@ export class GameService {
     this.games.next(games);
   }
 
-  getGame() {
+  getGames() {
     return this.games.getValue();
   }
 
@@ -35,33 +37,14 @@ export class GameService {
     return this.httpClient.get<Game>(`${environment.url}/games/${id}`);
   }
 
-  createNewGame(game: Game): void {
-    this.httpClient.post<Game>(`${environment.url}/games`, game).subscribe({
-      next: (newGame) => {
-        const currentGames = this.getGame();
-        this.setGame([...currentGames, newGame]);
-      },
-      error: (error) => {
-        console.error('Hiba az új játék létrehozásakor:', error);
-      },
-    });
+  createNewGame(game: Game): Observable<Game> {
+    return this.httpClient.post<Game>(`${environment.url}/games`, game);
   }
 
-  updateGame(game: Game): void {
-    this.httpClient
-      .put<Game>(`${environment.url}/games/${game.id}`, game)
-      .subscribe({
-        next: (updatedGame) => {
-          const currentGames = this.getGame();
-          const index = currentGames.findIndex((g) => g.id === updatedGame.id);
-          if (index !== -1) {
-            currentGames[index] = updatedGame;
-            this.setGame([...currentGames]);
-          }
-        },
-        error: (error) => {
-          console.error('Hiba a játék frissítésekor:', error);
-        },
-      });
+  updateGame(game: Game): Observable<Game> {
+    return this.httpClient.put<Game>(
+      `${environment.url}/games/${game.id}`,
+      game,
+    );
   }
 }

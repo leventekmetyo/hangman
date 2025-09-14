@@ -1,6 +1,5 @@
 <div class="game">
   <h1>Hangman Game</h1>
-  @let game = (game$ | async)!;
   @if (game !== null && game.word) {
     @if (game.status === 'won') {
       <h2 class="won">You've won!</h2>
@@ -12,7 +11,7 @@
         <div class="letters">
           @for (letter of game.word.value; track letter) {
             <div class="letter">
-              {{ letter | isGuessed: game.word.value : game.guessedLetters }}
+              {{ letter | isGuessed: game }}
             </div>
           }
         </div>
@@ -63,7 +62,7 @@
       </div>
     </div>
     <div class="buttons">
-      <button type="button" class="cancel">End Game</button>
+      <button type="button" class="cancel" (click)="endGame()">End Game</button>
       <button type="button" class="restart" (click)="createNewGame()">Start New Game</button>
     </div>
   } @else {

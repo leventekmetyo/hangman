@@ -30,4 +30,13 @@ export class WordService {
       }),
     );
   }
+
+  addNewWord(word: Word): Observable<Word> {
+    return this.httpClient.post<Word>(`${environment.url}/words`, word).pipe(
+      tap((newWord) => {
+        const currentWords = this.words.getValue();
+        this.words.next([...currentWords, newWord]);
+      }),
+    );
+  }
 }
